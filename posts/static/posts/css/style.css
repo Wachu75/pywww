@@ -1,0 +1,13 @@
+ul {
+    list-style-type: none;
+}
+
+ul li:nth-child(odd) {
+    background-color: #e0ffff;
+}
+ul li a {
+    color: #000000;
+}
+ul li a:hover {
+    color: #d00149;
+}

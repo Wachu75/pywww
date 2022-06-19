@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}{{ book.title }}{% endblock %}
+{% block content %}
+<h1>{{ book.title }}</h1>
+<div>
+{% if book.available %}
+<div class="alert alert-success" role="alert">Dostępna</div>
+{% else %}
+<div class="alert alert-danger" role="alert">Wypożyczona</div>
+{% endif %}
+</div>
+<div>Autor: {{ book.author }}</div>
+<div>Rok wydania: {{ book.publication_year }}</div>
+<div>Opis:</div>
+<div>
+{{ book.description }}
+</div>
+{% endblock %}

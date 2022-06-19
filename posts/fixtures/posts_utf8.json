@@ -1,0 +1,62 @@
+[
+{
+  "model": "posts.post",
+  "pk": 1,
+  "fields": {
+    "title": "pierwszy",
+    "content": "to jest pierwszy post",
+    "published": true,
+    "created": "2022-06-03T16:43:21.339Z",
+    "modified": "2022-06-03",
+    "sponsored": false
+  }
+},
+{
+  "model": "posts.post",
+  "pk": 2,
+  "fields": {
+    "title": "drugi",
+    "content": "to jest drugi post",
+    "published": true,
+    "created": "2022-06-03T16:43:40.135Z",
+    "modified": "2022-06-03",
+    "sponsored": false
+  }
+},
+{
+  "model": "posts.post",
+  "pk": 3,
+  "fields": {
+    "title": "trzeci",
+    "content": "to jest trzeci post",
+    "published": false,
+    "created": "2022-06-03T16:43:53.653Z",
+    "modified": "2022-06-03",
+    "sponsored": false
+  }
+},
+{
+  "model": "posts.post",
+  "pk": 4,
+  "fields": {
+    "title": "czwary",
+    "content": "to jest czwarty post",
+    "published": false,
+    "created": "2022-06-03T17:31:29.836Z",
+    "modified": "2022-06-03",
+    "sponsored": true
+  }
+},
+{
+  "model": "posts.post",
+  "pk": 5,
+  "fields": {
+    "title": "piaty",
+    "content": "to jest pi?ty post",
+    "published": false,
+    "created": "2022-06-03T17:31:45.843Z",
+    "modified": "2022-06-03",
+    "sponsored": false
+  }
+}
+]

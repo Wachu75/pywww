@@ -1,0 +1,6 @@
+17:45:01 **** Build of configuration Default for project ESP8266_LED_BLINK ****
+make COMPILE=gcc BOOT=new APP=1 SPI_SPEED=40 SPI_MODE=DIO SPI_SIZE_MAP=6 all 
+make: *** No rule to make target 'all'.  Stop.
+"make COMPILE=gcc BOOT=new APP=1 SPI_SPEED=40 SPI_MODE=DIO SPI_SIZE_MAP=6 all" terminated with exit code 2. Build might be incomplete.
+
+17:45:01 Build Failed. 1 errors, 0 warnings. (took 168ms)

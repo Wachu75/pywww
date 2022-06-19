@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block style %}
+
+    <link href="{% static 'posts/css/style.css' %}" rel="stylesheet">
+{% endblock %}
+{% block content %}
+<h1>Lista postów list.html</h1>
+<div class="row">
+    <form>
+        <input type="text" id="q" name="q">
+        <input type="submit" value="Submit">
+    </form>
+    <a href="{% url 'posts:add' %}">dodanie nowego posta</a>
+</div>
+<h1 class="title"> LISTA POSTÓW </h1>
+<ul class="list-group">
+    {% for post in posts_list %}
+    <li class="list-group-item"> <a href="{% url 'posts:details' post.id %}"> {{ post }} </a>  {{post.id}}    {% if post.sponsored %} (sponsorowany) {% endif %}</li>
+    {% endfor %}
+</ul>
+{% endblock %}

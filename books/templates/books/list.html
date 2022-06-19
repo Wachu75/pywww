@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="row">
+<div class="col-md-9">
+<h1>Książki</h1>
+<table class="table table-condensed">
+<thead><td>Tytuł</td><td>Stan</td>
+</thead>
+{% for book in books_list %}
+<tr>
+<td><a href="{% url 'books:details' book.id %}">{{ book.title }}</a></td>
+<td>
+{% if book.available == True %}Dostępna{% else %}Wypożyczona{% endif %}
+</td>
+</tr>
+{% endfor %}
+</table>
+</div>
+<div class="col-md-3">
+<img src='{% static "books/img/books.jpg" %}' alt="books image" width="100%">
+</div>
+</div>
+{% endblock %}
