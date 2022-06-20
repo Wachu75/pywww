@@ -42,5 +42,5 @@ class UserProfileForm(forms.ModelForm):
             super().__init__(*args, **kwargs)
             self.helper = FormHelper()
             self.helper.form_method = 'post'
-            self.helper.form_action = 'profile'
+            self.helper.form_action = 'profile' #co to za pole?
             self.helper.add_input(Submit('submit','Wyślij'))

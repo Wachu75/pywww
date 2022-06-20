@@ -40,12 +40,11 @@ def user_profile(request, user_id):
             profile = user.userprofile
             form = UserProfileForm(instance=profile)
         except AttributeError:
-            form = UserProfileForm(initial={"user": user, "bio": ""})
+            form = UserProfileForm(initial={"user": user, "bio": "---"})
         if request.user != user:
             for field in form.fields:
                 form.fields[field].disabled = True
-
-            #form.helper.inputs = []
+            #form.inputs = []
             print(form)
     return render(request, 'main/userprofile.html', {'form': form})
 

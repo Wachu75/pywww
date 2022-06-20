@@ -1,6 +1,7 @@
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Layout, Fieldset, ButtonHolder, Submit
 from django import forms
+from django.urls import reverse
 from posts.models import Post
 
 
@@ -49,7 +50,7 @@ class PostFormEdit(forms.ModelForm):
         super().__init__(*args, **kwargs)
         self.helper = FormHelper()
         self.helper.form_method = 'post'
-        self.helper.form_action = 'edit'
+        self.helper.form_action = '../save' #reverse('../save', args=[post_id]) old reverse('url_name', args=[self.instance.id])
         self.helper.layout = Layout(
             Fieldset(
                 'Edycja posta',
@@ -69,7 +70,7 @@ class PostFormNotEdit(forms.ModelForm):
         model = Post
         fields = ['title', 'content', 'published', 'sponsored']
         labels = {
-            "title": "Tytuł-1",
+            "title": "Tytuł-2",
             "content": "Treść",
             "published": "Opublikowany",
             "sponsored": "Sponsorowany"

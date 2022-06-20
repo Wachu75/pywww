@@ -7,7 +7,7 @@
 </div>
 <div>
     <p> {{ post.content}}  </p></br>
-    <a href="{% url 'posts:edit' post.id %}">EDYCJA</a>
+    <a method="post" href="{% url 'posts:edit' post.id %}">EDYCJA</a>
 </div>
 
 <!--li class="list-group-item"> <a href="{% url 'posts:details' post.id %}"> {{ post }} </a>  {{post.id}} -->
