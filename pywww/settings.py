@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'main.apps.MainConfig',
     'tags.apps.TagsConfig',
     'accounts.apps.AccountsConfig',
+    'django_filters',
 
 ]
 
