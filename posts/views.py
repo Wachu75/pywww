@@ -36,7 +36,7 @@ def add_post(request):
 def add_post_form(request):
     print(f"{request.method}")
     if request.method == "POST" and request.user.is_authenticated:
-        form = PostForm(request.POST) #PostForm z forms.py
+        form = PostForm(request.POST, request.FILES) #PostForm z forms.py
         print(f"druk testowy postu: {form}")
         print("punkt kontrolny")
         if form.is_valid():
@@ -67,7 +67,7 @@ def edit_post(request, post_id):
     print(f"{request.method}") # tu uzyskuję odpowieź GET
     if request.method == "POST":
         print("punkt kontrolny")
-        form = PostFormEdit(request.POST, instance=post)
+        form = PostFormEdit(request.POST,request.FILES ,instance=post)
         if form.is_valid():
             print("if ok")
 
