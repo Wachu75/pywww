@@ -17,7 +17,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
-
+from App import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -26,6 +26,10 @@ urlpatterns = [
     path('posts/', include('posts.urls')),
     path('', include('main.urls')),
     path('accounts/', include('accounts.urls')),
+    path('create/', views.data_form, name='data_create'),
+    path('data/', views.data_read, name='data_read'),
+    path('<int:id>', views.data_form, name='data_update'),
+    path('data_delete/<str:candidate_id>', views.data_delete, name='data_delete'),
 ]
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

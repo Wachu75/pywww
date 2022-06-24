@@ -41,13 +41,15 @@ INSTALLED_APPS = [
     'django_extensions',
     'import_export',
     'crispy_forms',
+    'crispy_bootstrap5',
+    'django_filters',
 
     'posts.apps.PostsConfig',
     'books.apps.BooksConfig',
     'main.apps.MainConfig',
     'tags.apps.TagsConfig',
     'accounts.apps.AccountsConfig',
-    'django_filters',
+    'App',
 
 ]
 
@@ -144,5 +146,9 @@ MEDIA_URL = "/media/"
 MEDIA_ROOT = BASE_DIR / "media"
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+
+
+#CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 
