@@ -1,7 +1,9 @@
 from django.urls import path
+from django.contrib.auth import authenticate
+from django.contrib.auth import views as auth_views
 from accounts.views import home, products, customer, createOrder, updateOrder, deleteOrder,registerPage,loginPage,logoutUser
 
-app_name = 'accounts'
+app_name = "accounts"
 
 urlpatterns = [
     path('register/', registerPage, name="register"),

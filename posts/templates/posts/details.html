@@ -14,4 +14,8 @@
 {% if post.example_file %}
 <div>Pobierz <a href="{{ post.example_file.url }}">przykład</a> </div>
 {% endif %}
+</p>
+{% if post.image %}
+<div>Pobierz <a href="{{ post.image.url }}">przykład</a> </div>
+{% endif %}
 {% endblock %}
