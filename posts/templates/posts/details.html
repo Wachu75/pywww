@@ -8,6 +8,11 @@
 <div>
     <p> {{ post.content}}  </p></br>
     <a method="post" href="{% url 'posts:edit' post.id %}">EDYCJA</a>
+    {% if post.image %}
+    <div class="col-md-3">
+        <img src="{{ post.image.url }}">
+    </div>
+    {% endif %}
 </div>
 
 <!--li class="list-group-item"> <a href="{% url 'posts:details' post.id %}"> {{ post }} </a>  {{post.id}} -->
@@ -18,4 +23,5 @@
 {% if post.image %}
 <div>Pobierz <a href="{{ post.image.url }}">przykład</a> </div>
 {% endif %}
+
 {% endblock %}

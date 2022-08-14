@@ -48,7 +48,7 @@ def add_post_form(request):
             return HttpResponseRedirect(reverse("posts:add")) # przekierownie urzytkownika do
         # czystego formularza
     else:
-        print('else')
+        print('else w add_post_form')
         form = PostForm()
         #form.helper.inputs=[] #chyba wyłącza button submit
     return render(
@@ -75,7 +75,7 @@ def edit_post(request, post_id):
             instance.save()
             return HttpResponseRedirect(reverse("posts:details"))
     else:
-        print('else')
+        print('else w edit_post()')
         #print(f"druk testowy postu w else: {post}")
         form = PostFormEdit(instance=post)
         #print(f"druk testowy form w else: {form}")
