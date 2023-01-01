@@ -25,6 +25,8 @@ urlpatterns = [
     path('books/', include('books.urls')),
     path('posts/', include('posts.urls')),
     path('', include('main.urls')),
+    path('', include('register.urls')),
+    path('account/', include('django.contrib.auth.urls')),
     path('accounts/', include('accounts.urls')),
     path('create/', views.data_form, name='data_create'),
     path('data/', views.data_read, name='data_read'),

@@ -7,7 +7,7 @@
 </div>
 <div>
     <p> {{ post.content}}  </p></br>
-    <a method="post" href="{% url 'posts:edit' post.id %}">EDYCJA</a>
+    <a method="POST" enctype="multipart/form-data" href="{% url 'posts:edit' post.id %}">EDYCJA</a>
     {% if post.image %}
     <div class="col-md-3">
         <img src="{{ post.image.url }}">

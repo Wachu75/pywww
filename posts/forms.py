@@ -8,7 +8,7 @@ from posts.models import Post
 class PostForm(forms.ModelForm):
     class Meta:
         model = Post
-        fields = ['title', 'content', 'published', 'sponsored', 'image']
+        fields = ['title', 'content', 'published', 'sponsored', 'image', "tags"]
         labels = {
             "title": "Tytuł-0",
             "content": "Treść",
@@ -29,6 +29,7 @@ class PostForm(forms.ModelForm):
                 'published',
                 'sponsored',
                 'image',
+                'tags',
             ),
             ButtonHolder(
                 Submit('submit', 'Dodaj', css_class="btn btn-primary"),
@@ -51,7 +52,7 @@ class PostFormEdit(forms.ModelForm):
         super().__init__(*args, **kwargs)
         self.helper = FormHelper()
         self.helper.form_method = 'post'
-        self.helper.form_action = '../save' #reverse('../save', args=[post_id]) old reverse('url_name', args=[self.instance.id])
+        #self.helper.form_action = 'list' #'../save' #reverse('../save', args=[post_id]) old reverse('url_name', args=[self.instance.id])
         self.helper.layout = Layout(
             Fieldset(
                 'Edycja posta',

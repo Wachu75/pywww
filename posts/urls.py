@@ -7,6 +7,7 @@ urlpatterns = [
     path('', posts_list, name='list'),
     path("<int:post_id>", post_details, name='details'),
     path('add', add_post_form, name="add"),
-    path('edit/<int:post_id>', edit_post, name="edit"),
+    path('<int:post_id>/edit', edit_post, name="edit"),
     path('save', save_post, name="save"),
+    path('save/<int:post_id>', save_post, name="save"),
 ]

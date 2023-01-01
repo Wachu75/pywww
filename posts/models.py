@@ -15,5 +15,8 @@ class Post(Timestamped):
     example_file = models.FileField(upload_to='posts/examples/', blank=True, null=True)
     image=models.ImageField(upload_to='posts/examples/img/', blank=True, null=True)
 
+    class Meta:
+        permissions = (("can_add_post", "can_view_post"),)
+
     def __str__(self):
         return f"{self.id} {self.title}"
