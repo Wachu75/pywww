@@ -9,8 +9,9 @@ https://docs.djangoproject.com/en/4.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
-
+import os
 from pathlib import Path
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -31,6 +32,8 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    #    'django_dal',
+    #'django_select2',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -43,6 +46,7 @@ INSTALLED_APPS = [
     'crispy_forms',
     'crispy_bootstrap5',
     'django_filters',
+    'sorl.thumbnail',
 
     'posts.apps.PostsConfig',
     'books.apps.BooksConfig',
@@ -50,6 +54,7 @@ INSTALLED_APPS = [
     'tags.apps.TagsConfig',
     'accounts.apps.AccountsConfig',
     'register.apps.RegisterConfig',
+    'galleries.apps.GalleriesConfig',
     'App',
 
 ]
@@ -148,8 +153,11 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [
-    BASE_DIR / 'static'
+    BASE_DIR / 'static',
+    'pywww/static/pywww/',
 ] #BASE_DIR główny katalog apliakcji
+
+STATIC_DIR =[BASE_DIR / 'static', os.path.join(BASE_DIR, 'static')]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
@@ -158,9 +166,13 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 SHELL_PLUS_PRINT_SQL = True
 
-MEDIA_URL = "/media/"
+'''MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'''
 
-MEDIA_ROOT = BASE_DIR / "media"
+
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media') #BASE_DIR / "media"
+MEDIA_URL = "/media/"
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 

@@ -51,8 +51,8 @@ def add_post(request):
 
     return render(request, 'posts/add.html')
 
+
 @login_required(login_url='login')
-#@permission_required("posts.Can_add_post", raise_exception=True)
 @permission_required("posts.add_post", login_url='login', raise_exception=True)
 def add_post_form(request):
     print(f"{request.method}")
@@ -79,7 +79,8 @@ def add_post_form(request):
         )
 
 
-@permission_required("posts.can_change_post", login_url='login')
+@login_required(login_url='login')
+@permission_required("posts.change_post", login_url='login', raise_exception=True)
 def edit_post(request, post_id):
     post = get_object_or_404(Post, pk=post_id)
     #order = Order.objects.get(id=pk)

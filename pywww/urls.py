@@ -24,14 +24,18 @@ urlpatterns = [
     #  path('main/', include('main.urls')),
     path('books/', include('books.urls')),
     path('posts/', include('posts.urls')),
+    path('galleries/', include('galleries.urls')),
     path('', include('main.urls')),
-    path('', include('register.urls')),
+    #path('', include('register.urls')),
     path('account/', include('django.contrib.auth.urls')),
     path('accounts/', include('accounts.urls')),
     path('create/', views.data_form, name='data_create'),
     path('data/', views.data_read, name='data_read'),
     path('<int:id>', views.data_form, name='data_update'),
     path('data_delete/<str:candidate_id>', views.data_delete, name='data_delete'),
-]
-urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
-urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) \
+              + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+
+#urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) \
+#urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

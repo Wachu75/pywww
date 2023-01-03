@@ -31,12 +31,14 @@
 <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
     <a href="/static" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
         <img src="{% static '/img/logo.png' %}" alt="logo" height="50px">
+                <br><br>
+        <img src='{% static "/img/logo.png" %}' alt="logo2" height="50px">
     </a>
     <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
         <li><a href="{% url 'main:base' %}" class="nav-link px-2 link-dark">Home</a></li>
         <li><a href="{% url 'posts:list' %}" class="nav-link px-2 link-dark">Posts</a></li>
         <li><a href="{% url 'books:list' %}" class="nav-link px-2 link-dark">Books</a></li>
-
+        <li><a href="{% url 'galleries:galleries_list' %}" class="nav-link px-2 link-dark">Galleries</a></li>
         <li><a href="{% url 'main:contact' %}" class="nav-link px-2 link-dark">About</a></li>
     </ul>
     <div class="col-md-3 text-end">
@@ -44,7 +46,7 @@
             <a type="button" class="btn btn-outline-primary me-2" href="{% url 'logout' %}">Logout</a>
         {% else %}
             <a type="button" class="btn btn-outline-primary me-2" href="{% url 'login' %}">Login</a>
-            <a type="button" class="btn btn-primary" href="{% url 'register:register' %}">Sign-up</a>
+
         {% endif %}
     </div>
 </header>
