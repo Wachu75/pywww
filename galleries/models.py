@@ -13,7 +13,7 @@ class Status(models.IntegerChoices):
 
 class Gallery(Timestamped):
     title = models.CharField(verbose_name="Tytuł", max_length=100)
-    slug = models.SlugField()
+    slug = models.SlugField(max_length=50, unique=True)
     description = models.TextField(verbose_name="Opis", null=True, blank=True)
     created = models.DateTimeField(verbose_name="Utworzono", auto_now_add=True)
     modified = models.DateTimeField(auto_now=True)
@@ -23,10 +23,18 @@ class Gallery(Timestamped):
         return self.title
 
     def save(self, *args, **kwargs):
-        if self._state.adding and not self.slug:
+        if not self.slug: #if not self._state.adding or self.slug is None: #self._state.adding: # and self.slug is None: #self.pk is None:
             slug = slugify(self.title)
+            #self.slug = slugify(self.name)
+            #print("test slug po if 1")
             slugs = self.__class__.objects.filter(slug=slug).values_list('slug', flat=True)
+            #print(slug)
+            self.slug = slug
+            #print(slug)
+            #print(slugs.values_list)
             if slugs:
+                print(slugs)
+                print("test slug po if 2")
                 while True:
                     if slug in slugs:
                         slug += get_random_text(5)
@@ -54,4 +62,15 @@ class Photo(Timestamped):
     def is_published(self):
         return self.status == Status.PUBLISHED
 
-
+    # def save(self, *args, **kwargs):
+    #     if self._state.adding and not self.slug:
+    #         slug = slugify(self.title)
+    #         slugs = self.__class__.objects.filter(slug=slug).values_list('slug', flat=True)
+    #         if slugs:
+    #             while True:
+    #                 if slug in slugs:
+    #                     slug += get_random_text(5)
+    #                 else:
+    #                     break
+    #             self.slug = slug
+    #     return super().save(*args, **kwargs)

@@ -16,7 +16,7 @@ def galleries_list(request):
     #galleries = Gallery.objects.filter(status=Status.PUBLISHED)
     galleries = Gallery.objects.filter(status=Status.PUBLISHED).annotate(p_count=Count('photos')).filter(p_count__gt=0)
     # galleries = [ g for g in galleries if g.photos.count() > 0 ]
-    per_page = request.GET.get('per_page', 9)
+    per_page = request.GET.get('per_page', 2)
     page_number = request.GET.get('page')
     paginator = Paginator(galleries, per_page)
     page_obj = paginator.get_page(page_number)
