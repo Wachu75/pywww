@@ -5,6 +5,7 @@ from django.contrib.auth.models import User
 from django.utils.timezone import now, timedelta
 from django.utils.text import slugify
 
+
 def upload_to(instance, filename):
     return f"galleries/{instance.gallery.slug}/{filename}"
 
@@ -19,12 +20,14 @@ class CheckAgeMixin:
         delta = timedelta(days=n)
         return now() - self.created > delta
 
+
 class Timestamped(models.Model, CheckAgeMixin):
     created = models.DateTimeField(auto_now_add=True)
     modified = models.DateField(auto_now=True)
 
     class Meta:
         abstract = True
+
 
 class SlugMixin(models.Model):
     SLUG_BASE_FIELD = "title"

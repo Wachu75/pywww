@@ -16,7 +16,7 @@ def galleries_list(request):
     #galleries = Gallery.objects.filter(status=Status.PUBLISHED)
     galleries = Gallery.objects.filter(status=Status.PUBLISHED).annotate(p_count=Count('photos')).filter(p_count__gt=0)
     # galleries = [ g for g in galleries if g.photos.count() > 0 ]
-    per_page = request.GET.get('per_page', 2)
+    per_page = request.GET.get('per_page', 4)
     page_number = request.GET.get('page')
     paginator = Paginator(galleries, per_page)
     page_obj = paginator.get_page(page_number)
@@ -69,4 +69,4 @@ def update_photo_view(request, gallery_id, photo_id):
             return HttpResponseRedirect(reverse("galleries:add_photo", args=[gallery_id]))
     else:
         photo_form = PhotoForm(instance=photo)
-    return render(request, 'galleries.html', {'photo_form':photo_form, 'gallery': gallery})
+    return render(request, 'galleries.html', {'photo_form': photo_form, 'gallery': gallery})

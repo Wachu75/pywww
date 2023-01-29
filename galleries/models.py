@@ -4,7 +4,6 @@ from coomon.models import Timestamped
 from coomon.models import upload_to, get_random_text
 
 
-
 class Status(models.IntegerChoices):
     NEW = 1, 'new'
     HIDE = 2, 'hide'
@@ -23,24 +22,19 @@ class Gallery(Timestamped):
         return self.title
 
     def save(self, *args, **kwargs):
-        if not self.slug: #if not self._state.adding or self.slug is None: #self._state.adding: # and self.slug is None: #self.pk is None:
+        if self._state.adding and not self.slug:
             slug = slugify(self.title)
-            #self.slug = slugify(self.name)
-            #print("test slug po if 1")
             slugs = self.__class__.objects.filter(slug=slug).values_list('slug', flat=True)
-            #print(slug)
             self.slug = slug
-            #print(slug)
-            #print(slugs.values_list)
             if slugs:
-                print(slugs)
-                print("test slug po if 2")
                 while True:
                     if slug in slugs:
                         slug += get_random_text(5)
                     else:
                         break
                 self.slug = slug
+        if self.status == Status.HIDE:
+            self.photo.upddate(status=Status.HIDE)
         return super().save(*args, **kwargs)
 
 

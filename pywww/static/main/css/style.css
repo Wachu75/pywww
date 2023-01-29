@@ -2,3 +2,25 @@ body {
     background-color: yellow;
     text-color: red;
 }
+
+
+    .photo_gallery {
+
+        overflow: hidden; margin: 30px -20px;
+
+    }
+    .photo_gallery > a {
+
+        float: left; width: 33.3333%; padding: 1px; box-sizing: border-box; position: relative;
+
+    }
+
+    .photo_gallery > a:first-child { left: -1px; }
+    .photo_gallery > a:last-child { right: -1px; }
+
+    .photo_gallery > a > img {
+
+        display: block; width: 50%;
+
+    }
+

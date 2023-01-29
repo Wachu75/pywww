@@ -17,7 +17,7 @@ A==" crossorigin="anonymous"/>
                     {% if gallery_image.is_published %}
                         {% thumbnail gallery_image.image "x300" as im %}
                             <a href="{{ gallery_image.image.url }}">
-                                <img src="{{ im.url }}" alt=""/>
+                                <img src="{{ im.url }}" alt="" title=""/>
                             </a>
                         {% endthumbnail %}
                     {% endif %}
@@ -34,4 +34,6 @@ g==" crossorigin="anonymous"></script>
  <script>
  var gallery = new SimpleLightbox('.photo_gallery a');
  </script>
+
+<!-- {elements: '.photo_gallery a'} -->
 {% endblock %}
